@@ -52,7 +52,7 @@ public class Function
       // Build a return packet
       MessageOutput output = new MessageOutput();
 
-      output.message = "Hello tech talk!";
+      output.setMessage("Hello tech talk!");
 
       emitter.complete(output);
     }
