@@ -31,7 +31,7 @@ public class Function
     @Funq
     @CloudEventMapping(responseType = "techtalkevent")
     //public Uni<MessageOutput> function( Input input, @Context CloudEvent cloudEvent)
-    public Uni<MessageOutput> function( String input, @Context CloudEvent cloudEvent)
+    public Uni<MessageOutput> function( Object input, @Context CloudEvent cloudEvent)
     {
       return Uni.createFrom().emitter(emitter -> 
       {
@@ -39,16 +39,10 @@ public class Function
       });    
     }
  
-    public void buildResponse( String input, CloudEvent cloudEvent, UniEmitter<? super MessageOutput> emitter )
+    public void buildResponse( Object input, CloudEvent cloudEvent, UniEmitter<? super MessageOutput> emitter )
     {
-      // Setup Watchman
-      Watchman watchman = new Watchman( _watchmanURL );
+      System.out.println("Recv:" + input );
 
-     System.out.println("Recv:" + input );
-
-      // Watchman
-      //boolean watched = watchman.inform( "HIT:" + input );
-      
       // Build a return packet
       MessageOutput output = new MessageOutput();
 
