@@ -46,7 +46,7 @@ public class Function
       // Build a return packet
       MessageOutput output = new MessageOutput();
 
-      output.setMessage("Hello tech talk!");
+      output.setMessage("Hello Devoxx; message created in the Quarkus function and emitted as cloud event cetype 'techtalkevent'");
 
       emitter.complete(output);
     }
